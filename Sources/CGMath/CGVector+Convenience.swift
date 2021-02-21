@@ -44,5 +44,21 @@ public extension CGVector {
         return dx * vector.dy - dy * vector.dx
     }
 
+    // MARK: Average Vector
+        
+    static func average(_ vectors: CGVector...) -> CGVector {
+        return average(vectors)
+    }
+
+    static func average(_ vectors: [CGVector]) -> CGVector {
+        var dx: CGFloat = 0
+        var dy: CGFloat = 0
+        for vector in vectors {
+            dx += vector.dx
+            dy += vector.dy
+        }
+        let denominator = CGFloat(vectors.count)
+        return CGVector(dx: dx / denominator, dy: dy / denominator)
+    }
 }
 

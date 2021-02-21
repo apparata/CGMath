@@ -28,5 +28,22 @@ public extension CGPoint {
     func with(y: CGFloat) -> CGPoint {
         return CGPoint(x: x, y: y)
     }
+    
+    // MARK: Average Point
+    
+    static func average(_ points: CGPoint...) -> CGPoint {
+        return average(points)
+    }
+
+    static func average(_ points: [CGPoint]) -> CGPoint {
+        var x: CGFloat = 0
+        var y: CGFloat = 0
+        for point in points {
+            x += point.x
+            y += point.y
+        }
+        let denominator = CGFloat(points.count)
+        return CGPoint(x: x / denominator, y: y / denominator)
+    }
 }
 

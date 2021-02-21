@@ -32,4 +32,21 @@ public extension CGSize {
     func with(height: CGFloat) -> CGSize {
         return CGSize(width: width, height: height)
     }
+    
+    // MARK: Average Size
+    
+    static func average(_ sizes: CGSize...) -> CGSize {
+        return average(sizes)
+    }
+
+    static func average(_ sizes: [CGSize]) -> CGSize {
+        var width: CGFloat = 0
+        var height: CGFloat = 0
+        for size in sizes {
+            width += size.width
+            height += size.height
+        }
+        let denominator = CGFloat(sizes.count)
+        return CGSize(width: width / denominator, height: height / denominator)
+    }
 }
