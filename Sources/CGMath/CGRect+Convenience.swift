@@ -118,5 +118,15 @@ public extension CGRect {
             let targetHeight = targetAspectRatio * size.width
             return CGRect(center: center, size: CGSize(width: targetHeight, height: size.width))
         }
-    }    
+    }
+
+    /// Returns a rectangle with an origin that is the `minX` and `minY` and a size that is calculated
+    /// from the `maxX - minX` and `maxY - minY` of the two given points.
+    static func absolute(from: CGPoint, to: CGPoint) -> CGRect {
+        let x = Swift.min(from.x, to.x)
+        let y = Swift.min(from.y, to.y)
+        let width = abs(from.x - to.x)
+        let height = abs(from.y - to.y)
+        return CGRect(x: x, y: y, width: width, height: height)
+    }
 }
