@@ -60,5 +60,15 @@ public extension CGVector {
         let denominator = CGFloat(vectors.count)
         return CGVector(dx: dx / denominator, dy: dy / denominator)
     }
+
+    // MARK: Distance to Vector
+
+    func distanceSquared(to: CGVector) -> CGFloat {
+        (dx - to.dx) * (dx - to.dx) + (dy - to.dy) * (dy - to.dy)
+    }
+
+    func distance(to: CGVector) -> CGFloat {
+        sqrt((dx - to.dx) * (dx - to.dx) + (dy - to.dy) * (dy - to.dy))
+    }
 }
 

@@ -45,5 +45,14 @@ public extension CGPoint {
         let denominator = CGFloat(points.count)
         return CGPoint(x: x / denominator, y: y / denominator)
     }
-}
 
+    // MARK: Distance to Point
+
+    func distanceSquared(to: CGPoint) -> CGFloat {
+        (x - to.x) * (x - to.x) + (y - to.y) * (y - to.y)
+    }
+
+    func distance(to: CGPoint) -> CGFloat {
+        sqrt((x - to.x) * (x - to.x) + (y - to.y) * (y - to.y))
+    }
+}
